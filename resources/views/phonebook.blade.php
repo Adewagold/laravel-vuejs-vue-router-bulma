@@ -11,6 +11,7 @@
 	<router-view></router-view>
 	<Myfooter> </Myfooter>	
 	</div>
+	<Add>	</Add>
 	
 	<p v-text="page_title"></p>
 </div>

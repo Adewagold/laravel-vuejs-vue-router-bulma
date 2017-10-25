@@ -15,6 +15,7 @@ let Myfooter = require('./components/Myfooter.vue');
 let Home = require('./components/Home.vue');
 let About = require('./components/About.vue');
 
+
 const routes = [
   { path: '/Home', component: Home },
   { path: '/About', component: About }
