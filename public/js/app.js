@@ -43163,6 +43163,7 @@ var Add = __webpack_require__(58);
 	data: function data() {
 		return {
 			addActive: ''
+
 		};
 	},
 
@@ -43170,6 +43171,10 @@ var Add = __webpack_require__(58);
 	methods: {
 		openAdd: function openAdd() {
 			this.addActive = "is-active";
+		},
+		closeAdd: function closeAdd() {
+
+			this.addActive = "";
 		}
 	}
 
@@ -43191,7 +43196,17 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1),
+      _c("a", { staticClass: "panel-block", class: _vm.addActive }, [
+        _c("span", { staticClass: "column is-9" }, [
+          _vm._v("\n   \t Contact\n   ")
+        ]),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3)
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -43206,7 +43221,10 @@ var render = function() {
             [_vm._v("\n      Add Contact\n    ")]
           ),
           _vm._v(" "),
-          _c("Add")
+          _c("Add", {
+            attrs: { openmodal: _vm.addActive },
+            on: { closerequest: _vm.closeAdd }
+          })
         ],
         1
       )
@@ -43239,22 +43257,24 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "panel-block" }, [
-      _c("span", { staticClass: "column is-9" }, [
-        _vm._v("\n   \t Contact\n   ")
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "column is-1" }, [
-        _c("i", { staticClass: "has-text-danger fa fa-trash" })
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "column is-1" }, [
-        _c("i", { staticClass: "has-text-primary fa fa-edit" })
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "column is-1" }, [
-        _c("i", { staticClass: "has-text-info fa fa-eye" })
-      ])
+    return _c("span", { staticClass: "column is-1" }, [
+      _c("i", { staticClass: "has-text-danger fa fa-trash" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "column is-1" }, [
+      _c("i", { staticClass: "has-text-primary fa fa-edit" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "column is-1" }, [
+      _c("i", { staticClass: "has-text-info fa fa-eye" })
     ])
   }
 ]
@@ -43374,7 +43394,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(60)
 /* template */
 var __vue_template__ = __webpack_require__(59)
 /* template functional */
@@ -43423,39 +43443,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal" }, [
-      _c("div", { staticClass: "modal-background" }),
+  return _c("div", { staticClass: "modal", class: _vm.openmodal }, [
+    _c("div", { staticClass: "modal-background" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal-card" }, [
+      _c("header", { staticClass: "modal-card-head" }, [
+        _c("p", { staticClass: "modal-card-title" }, [_vm._v("Modal title")]),
+        _vm._v(" "),
+        _c("button", {
+          staticClass: "delete",
+          attrs: { "aria-label": "close" },
+          on: { click: _vm.closemodal }
+        })
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "modal-card" }, [
-        _c("header", { staticClass: "modal-card-head" }, [
-          _c("p", { staticClass: "modal-card-title" }, [_vm._v("Modal title")]),
-          _vm._v(" "),
-          _c("button", {
-            staticClass: "delete",
-            attrs: { "aria-label": "close" }
-          })
+      _c("section", { staticClass: "modal-card-body" }),
+      _vm._v(" "),
+      _c("footer", { staticClass: "modal-card-foot" }, [
+        _c("button", { staticClass: "button is-success" }, [
+          _vm._v("Save changes")
         ]),
         _vm._v(" "),
-        _c("section", { staticClass: "modal-card-body" }),
-        _vm._v(" "),
-        _c("footer", { staticClass: "modal-card-foot" }, [
-          _c("button", { staticClass: "button is-success" }, [
-            _vm._v("Save changes")
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "button" }, [_vm._v("Cancel")])
+        _c("button", { staticClass: "button", on: { click: _vm.closemodal } }, [
+          _vm._v("Cancel")
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -43464,6 +43480,40 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-11edf8f2", module.exports)
   }
 }
+
+/***/ }),
+/* 60 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['openmodal', 'closerequest'],
+  methods: {
+    closemodal: function closemodal() {
+      this.$emit('closerequest');
+    }
+  }
+});
 
 /***/ })
 /******/ ]);

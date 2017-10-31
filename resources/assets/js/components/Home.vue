@@ -19,7 +19,7 @@
     </p>
   </div>
  
-  <a class="panel-block">
+  <a class="panel-block" :class="addActive">
    <span class="column is-9">
    	 Contact
    </span>
@@ -39,7 +39,7 @@
     <button class="button is-link is-outlined is-fullwidth" @click="openAdd">
       Add Contact
     </button>
-    <Add> </Add>
+    <Add :openmodal='addActive' @closerequest="closeAdd"> </Add>
   </div>
 </nav>
 
@@ -52,7 +52,8 @@
 	export default{
 		data(){
 			return{
-				addActive:'' 
+				addActive:'',
+				
 			}
 		},
 		components: {Add},
@@ -60,6 +61,11 @@
 			openAdd()
 			{
 				this.addActive = "is-active"
+			},
+			closeAdd()
+			{
+
+				this.addActive = ""
 			}
 		}
 
